@@ -10,7 +10,7 @@ class Game
   end
 
   def guess(letter)
-    if @word.guess(letter)
+    if @word.contains?(letter)
       @right_guesses += 1
       true
     else

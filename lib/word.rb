@@ -14,7 +14,7 @@ class Word
     end.join(' ')
   end
 
-  def guess(letter)
+  def contains?(letter)
     if @word.include?(letter)
       @correct_guesses << letter
       true

@@ -13,7 +13,7 @@ describe Game do
     it 'checks the word to see if it is guessed correctly' do
       word = double
       game = Game.new(word)
-      word.should_receive(:guess)
+      word.should_receive(:contains?)
       game.guess('m')
     end
   end
@@ -29,7 +29,7 @@ describe Game do
       word = Word.new
       word = double
       game = Game.new(word)
-      word.stub(:guess).and_return(false)
+      word.stub(:contains?).and_return(false)
       8.times {game.guess('z')}
       game.over?.should be_true
     end
@@ -39,7 +39,7 @@ describe Game do
       word = double
       game = Game.new(word)
       word.stub(:number_of_letters).and_return(6)
-      word.stub(:guess).and_return(true)
+      word.stub(:contains?).and_return(true)
       6.times {game.guess('m')}
       game.over?.should be_true
     end
@@ -51,7 +51,7 @@ describe Game do
       word = double
       game = Game.new(word)
       word.stub(:number_of_letters).and_return(6)
-      word.stub(:guess).and_return(true)
+      word.stub(:contains?).and_return(true)
       6.times {game.guess('m')}
       game.won?.should be_true
     end
@@ -61,7 +61,7 @@ describe Game do
       word = double
       game = Game.new(word)
       word.stub(:number_of_letters).and_return(6)
-      word.stub(:guess).and_return(false)
+      word.stub(:contains?).and_return(false)
       8.times {game.guess('z')}
       game.won?.should be_false
     end

@@ -11,22 +11,22 @@ describe Word do
     it 'replaces the underscores with letters when they are guessed correctly' do
       Array.any_instance.stub(:sample).and_return('palate')
       word = Word.new
-      word.guess('a')
+      word.contains?('a')
       word.to_s.should eq '_ a _ a _ _'
     end
   end
 
-  context '#guess' do
+  context '#contains?' do
     it 'returns false if the letter is not in the word' do
       Array.any_instance.stub(:sample).and_return('monkey')
       word = Word.new
-      word.guess('z').should be_false
+      word.contains?('z').should be_false
     end
 
     it 'returns true if the letter is in the word' do
       Array.any_instance.stub(:sample).and_return('monkey')
       word = Word.new
-      word.guess('m').should be_true
+      word.contains?('m').should be_true
     end
   end
 
