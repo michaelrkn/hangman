@@ -5,7 +5,7 @@ describe Word do
     it 'returns blank spaces with the length of the word' do
       word = Word.new
       Array.any_instance.stub(:sample).and_return('monkey')
-      word.to_s.should eq '_ _ _ _ _ _'
+      word.to_s
     end
   end
 end
