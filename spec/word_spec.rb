@@ -22,4 +22,12 @@ describe Word do
       word.guess('m').should be_true
     end
   end
+
+  context '#number_of_letters' do
+    it 'returns the number of letters in the word' do
+      Array.any_instance.should_receive(:sample).and_return('palate')
+      word = Word.new
+      word.number_of_letters.should eq 5
+    end
+  end
 end

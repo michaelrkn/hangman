@@ -10,4 +10,8 @@ class Word
   def guess(letter)
     @word.include?(letter)
   end
+
+  def number_of_letters
+    @word.split('').uniq.join.length
+  end
 end
