@@ -1,6 +1,6 @@
 class Word
   def initialize
-    @word = ['monkey', 'ape', 'bonobo'].sample
+    @word = ['monkey', 'ape', 'chimp'].sample
   end
 
   def to_s
