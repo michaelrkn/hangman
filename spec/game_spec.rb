@@ -44,4 +44,26 @@ describe Game do
       game.over?.should be_true
     end
   end
+
+  context 'won?' do
+    it 'should be true if the player guessed the word correctly' do
+      word = Word.new
+      word = double
+      game = Game.new(word)
+      word.stub(:number_of_letters).and_return(6)
+      word.stub(:guess).and_return(true)
+      6.times {game.guess('m')}
+      game.won?.should be_true
+    end
+
+    it 'should be false if the player did not guess the word correctly' do
+      word = Word.new
+      word = double
+      game = Game.new(word)
+      word.stub(:number_of_letters).and_return(6)
+      word.stub(:guess).and_return(false)
+      8.times {game.guess('z')}
+      game.won?.should be_false
+    end
+  end
 end

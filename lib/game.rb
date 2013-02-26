@@ -6,7 +6,7 @@ class Game
   end
 
   def over?
-    @wrong_guesses >= 8 || @right_guesses == @word.number_of_letters
+    @wrong_guesses >= 8 || won?
   end
 
   def guess(letter)
@@ -17,5 +17,9 @@ class Game
       @wrong_guesses += 1
       false
     end
+  end
+
+  def won?
+    @right_guesses == @word.number_of_letters
   end
 end
