@@ -1,14 +1,26 @@
 class Word
   def initialize
     @word = ['monkey', 'ape', 'chimp'].sample
+    @correct_guesses = []
   end
 
   def to_s
-    (1..@word.length).map {|number| '_'}.join(' ')
+    @word.split('').map do |character|
+      if @correct_guesses.include?(character)
+        character
+      else
+        '_'
+      end
+    end.join(' ')
   end
 
   def guess(letter)
-    @word.include?(letter)
+    if @word.include?(letter)
+      @correct_guesses << letter
+      true
+    else
+      false
+    end
   end
 
   def number_of_letters
