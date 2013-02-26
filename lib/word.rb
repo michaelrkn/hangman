@@ -6,4 +6,8 @@ class Word
   def to_s
     (1..@word.length).map {|number| '_'}.join(' ')
   end
+
+  def guess(letter)
+    @word.include?(letter)
+  end
 end
