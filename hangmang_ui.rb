@@ -1,3 +1,7 @@
+require './lib/game'
+require './lib/word'
+
+
 puts "Welcome to Hangman!"
 
 word = Word.new
@@ -12,10 +16,11 @@ until game.over?
   else
     puts 'Nope.'
   end
+  puts "\n"
 end
 
 if game.won?
-  'Congratulations, you win!'
+  puts 'Congratulations, you win!'
 else
-  'Sorry, you lose.'
+  puts 'Sorry, you lose.'
 end
